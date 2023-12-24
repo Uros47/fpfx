@@ -39,7 +39,7 @@ const LeaderboardTable = () => {
   const fetchUsersData = async () => {
     setIsLoading(true);
     try {
-      const queryParams = `?q=${searchData}&?_page=${
+      const queryParams = `?q=${searchData}&_page=${
         currentPage + 1
       }&_limit=${rowsPerPage}&_sort=${
         sortColumn === "Date of creation" ? "createdAt" : sortColumn
