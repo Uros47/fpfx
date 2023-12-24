@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 
 import React, { useEffect, useState } from "react";
+import Search from "./Search";
 
 const cellTitles = ["User", "Profit", "Loss", "Balance"];
 
@@ -26,6 +27,7 @@ const LeaderboardTable = () => {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [sortColumn, setSortColumn] = useState<string>("Date of creation");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [searchData, setSearchData] = useState<string>("");
 
   let formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -37,7 +39,7 @@ const LeaderboardTable = () => {
   const fetchUsersData = async () => {
     setIsLoading(true);
     try {
-      const queryParams = `?_page=${
+      const queryParams = `?q=${searchData}&?_page=${
         currentPage + 1
       }&_limit=${rowsPerPage}&_sort=${
         sortColumn === "Date of creation" ? "createdAt" : sortColumn
@@ -97,7 +99,7 @@ const LeaderboardTable = () => {
 
   useEffect(() => {
     fetchUsersData();
-  }, [currentPage, rowsPerPage, sortOrder, sortColumn]);
+  }, [currentPage, rowsPerPage, sortOrder, sortColumn, searchData]);
 
   const handleSortRequest = (column: string) => {
     const isAsc = sortColumn === column && sortOrder === "asc";
@@ -107,12 +109,14 @@ const LeaderboardTable = () => {
 
   return (
     <>
-      <TableContainer component={Paper}>
+      <Box alignSelf="end" sx={{ marginBottom: "10px" }}>
+        <Search searchData={searchData} setSearchData={setSearchData} />
+      </Box>
+      <TableContainer sx={{ maxHeight: "603px" }} component={Paper}>
         <Table
           sx={{
             margin: "0 auto",
             width: "1200px",
-            height: "603px",
           }}
           stickyHeader
           aria-label="collapsible table"

@@ -2,9 +2,11 @@ import { IconButton, InputBase, Paper, TextField } from "@mui/material";
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Search = () => {
-  const [searchData, setSearchData] = useState<string>();
-
+type SearchTypes = {
+  searchData: string | null;
+  setSearchData: (data: string) => void;
+};
+const Search = ({ searchData, setSearchData }: SearchTypes) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchData(event.target.value);
   };
@@ -18,7 +20,7 @@ const Search = () => {
         <SearchIcon />
       </IconButton>
       <InputBase
-        autoComplete="false"
+        type="text"
         name="search"
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search by user..."

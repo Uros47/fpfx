@@ -9,9 +9,6 @@ const Leaderboard = () => {
       <Box>
         <Typography variant="h4">Leaderboard</Typography>
       </Box>
-      <Box alignSelf="end" sx={{ marginBottom: "10px" }}>
-        <Search />
-      </Box>
       <Box>
         <LeaderboardTable />
       </Box>
