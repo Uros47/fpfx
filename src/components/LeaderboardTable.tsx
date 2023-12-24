@@ -160,7 +160,7 @@ const LeaderboardTable = () => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 20, 30, 50]}
+        rowsPerPageOptions={[5, 10, 15, 20]}
         component="div"
         count={totalCount}
         rowsPerPage={rowsPerPage}
