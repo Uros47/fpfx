@@ -38,11 +38,12 @@ const LeaderboardTable = () => {
     handleSortRequest,
     tableData,
     totalCount,
+    chartData,
   } = useUsersContext();
 
   useEffect(() => {
     fetchUsersData();
-  }, [currentPage, rowsPerPage, sortOrder, sortColumn, searchData]);
+  }, [currentPage, rowsPerPage, sortOrder, sortColumn, searchData, chartData]);
 
   return (
     <>
