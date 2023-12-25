@@ -7,6 +7,7 @@ import {
   InputLabel,
   Typography,
   SelectChangeEvent,
+  TextField,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import {
@@ -41,51 +42,112 @@ import {
 const OverviewChart = () => {
   //   const [selectedUser, setSelectedUser] = useState();
 
-  const { tableData, fetchUserById, chartData } = useUsersContext();
+  const { tableData, fetchUserById, chartData, cardData } = useUsersContext();
+  console.log(cardData, "card data");
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     fetchUserById(event.target.value);
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      <LineChart
-        width={881}
-        height={204}
-        data={chartData}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginBottom: "50px",
+        }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="id" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="profit" stroke="#8884d8" />
-        <Line type="monotone" dataKey="loss" stroke="#82ca9d" />
-      </LineChart>
+        <Typography width="50%" variant="h4">
+          Overview
+        </Typography>
 
-      <FormControl sx={{ width: "20%" }} fullWidth>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Age"
-          onChange={handleChange}
-          defaultValue=""
+        <FormControl
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            width: "50%",
+            justifyContent: "end",
+          }}
         >
-          {tableData.length > 0 &&
-            tableData.map((user: any) => (
-              <MenuItem key={user.id} value={user.id}>
-                {user.name}
-              </MenuItem>
-            ))}
-        </Select>
-      </FormControl>
+          <Typography alignSelf="center" mr="5px">
+            Select User
+          </Typography>
+          <Select
+            sx={{ width: "35%" }}
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            onChange={handleChange}
+            defaultValue=""
+          >
+            {tableData.length > 0 &&
+              tableData.map((user: any) => (
+                <MenuItem key={user.id} value={user.id}>
+                  {user.name}
+                </MenuItem>
+              ))}
+          </Select>
+        </FormControl>
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <LineChart
+          width={881}
+          height={204}
+          data={chartData}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="id" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="profit" stroke="#8884d8" />
+          <Line type="monotone" dataKey="loss" stroke="#82ca9d" />
+        </LineChart>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <TextField
+            sx={{ width: "300px" }}
+            label="Profit"
+            id="outlined-read-only-input"
+            value={
+              cardData ? cardData.profit : "select user to display total profit"
+            }
+            InputProps={{
+              readOnly: true,
+            }}
+          />
+          <TextField
+            sx={{ input: { color: "red" } }}
+            label="Loss"
+            id="outlined-read-only-input"
+            value={
+              cardData ? cardData.loss : "select user to display total loss"
+            }
+            InputProps={{
+              readOnly: true,
+            }}
+          />
+          <TextField
+            sx={{ input: { color: "orange" } }}
+            label="Balance"
+            id="outlined-read-only-input"
+            value={
+              cardData ? cardData.balance : "select user to display balance"
+            }
+            InputProps={{
+              readOnly: true,
+            }}
+          />
+        </Box>
+      </Box>
     </Box>
   );
 };

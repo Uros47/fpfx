@@ -25,6 +25,8 @@ interface UsersContextInterface {
   sortColumn: any;
   setSortColumn: (prop: any) => void;
   chartData: any;
+  cardData: any;
+  setCardData: any;
 }
 
 const UsersContext = createContext<UsersContextInterface>(
@@ -49,6 +51,7 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
   const [sortColumn, setSortColumn] = useState<string>();
   const [searchData, setSearchData] = useState<string>("");
   const [chartData, setChartData] = useState<string>("");
+  const [cardData, setCardData] = useState<any>();
 
   const fetchUsersData = async () => {
     try {
@@ -104,6 +107,22 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
         method: "GET",
       });
       const data = await user.json();
+
+      // converting from negative with Math.abs()
+      const accLoss = Math.abs(
+        data.loss.reduce((a: number, b: number) => a + b, 0)
+      );
+      const accProfit = data.profit.reduce((a: number, b: number) => a + b, 0);
+      const balance = accProfit - accLoss;
+      const transformedUserObject = {
+        loss: accLoss,
+        profit: accProfit,
+        balance: balance,
+      };
+      console.log(transformedUserObject, "transformedUserObject");
+      setCardData(transformedUserObject);
+
+      console.log(data, "id data");
 
       const chartDataArr: any = [];
 
@@ -161,6 +180,8 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
         searchData,
         setSearchData,
         chartData,
+        cardData,
+        setCardData,
       }}
     >
       {children}
