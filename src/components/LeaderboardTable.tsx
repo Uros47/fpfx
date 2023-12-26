@@ -76,36 +76,9 @@ const LeaderboardTable = () => {
                       User
                     </TableSortLabel>
                   </TableCell>
-                  <TableCell sx={{ fontWeight: 600 }} sortDirection={sortOrder}>
-                    <TableSortLabel
-                      active={true}
-                      direction={sortOrder}
-                      onClick={() => handleSortRequest("profit")}
-                    >
-                      Profit
-                    </TableSortLabel>
-                  </TableCell>
-                  <TableCell sx={{ fontWeight: 600 }} sortDirection={sortOrder}>
-                    <TableSortLabel
-                      active={true}
-                      direction={sortOrder}
-                      onClick={() => handleSortRequest("loss")}
-                    >
-                      Loss
-                    </TableSortLabel>
-                  </TableCell>
-                  <TableCell
-                    sx={{ fontWeight: 600 }}
-                    sortDirection={sortColumn === "Balance" ? sortOrder : false}
-                  >
-                    <TableSortLabel
-                      active={sortColumn === "Balance"}
-                      direction={sortOrder}
-                      onClick={() => handleSortRequest("balance")}
-                    >
-                      Balance
-                    </TableSortLabel>
-                  </TableCell>
+                  <TableCell sx={{ fontWeight: 600 }}>Profit</TableCell>
+                  <TableCell sx={{ fontWeight: 600 }}>Loss</TableCell>
+                  <TableCell sx={{ fontWeight: 600 }}>Balance</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
