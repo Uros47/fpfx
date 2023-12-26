@@ -108,7 +108,6 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
       });
       const data = await user.json();
 
-      // converting from negative with Math.abs()
       const accLoss = Math.abs(
         data.loss.reduce((a: number, b: number) => a + b, 0)
       );

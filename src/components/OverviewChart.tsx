@@ -19,6 +19,7 @@ import {
   Legend,
   Line,
 } from "recharts";
+import InfoCard from "./InfoCard";
 
 // const data = {
 //   id: "2230978213987124057",
@@ -50,7 +51,7 @@ const OverviewChart = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", marginTop: "50px" }}>
       <Box
         sx={{
           display: "flex",
@@ -100,7 +101,7 @@ const OverviewChart = () => {
       >
         <LineChart
           width={881}
-          height={204}
+          height={250}
           data={chartData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
@@ -113,38 +114,19 @@ const OverviewChart = () => {
           <Line type="monotone" dataKey="loss" stroke="#82ca9d" />
         </LineChart>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          <TextField
-            sx={{ width: "300px" }}
-            label="Profit"
-            id="outlined-read-only-input"
-            value={
-              cardData ? cardData.profit : "select user to display total profit"
-            }
-            InputProps={{
-              readOnly: true,
-            }}
+          <InfoCard
+            data={cardData ? cardData.profit : null}
+            infoText="Profit"
           />
-          <TextField
-            sx={{ input: { color: "red" } }}
-            label="Loss"
-            id="outlined-read-only-input"
-            value={
-              cardData ? cardData.loss : "select user to display total loss"
-            }
-            InputProps={{
-              readOnly: true,
-            }}
+          <InfoCard
+            data={cardData ? cardData.loss : null}
+            textColor="red"
+            infoText="Loss"
           />
-          <TextField
-            sx={{ input: { color: "orange" } }}
-            label="Balance"
-            id="outlined-read-only-input"
-            value={
-              cardData ? cardData.balance : "select user to display balance"
-            }
-            InputProps={{
-              readOnly: true,
-            }}
+          <InfoCard
+            data={cardData ? cardData.balance : null}
+            textColor="orange"
+            infoText="Balance"
           />
         </Box>
       </Box>
