@@ -11,9 +11,10 @@ const InfoCard = ({ data, infoText, textColor }: InfoCardTypes) => {
   return (
     <TextField
       sx={{ input: { color: textColor ? textColor : null } }}
-      placeholder={infoText}
+      label={infoText}
       id="outlined-read-only-input"
       value={data}
+      InputLabelProps={{ shrink: true }}
       InputProps={{
         readOnly: true,
       }}
