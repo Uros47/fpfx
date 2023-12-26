@@ -2,15 +2,15 @@ import { TextField } from "@mui/material";
 import React from "react";
 
 type InfoCardTypes = {
-  data: {};
+  data: {} | undefined;
   infoText: string;
-  textColor?: string | null;
+  textColor?: string | "";
 };
 
 const InfoCard = ({ data, infoText, textColor }: InfoCardTypes) => {
   return (
     <TextField
-      sx={{ input: { color: textColor ? textColor : null } }}
+      sx={{ input: { color: textColor ? textColor : "" } }}
       label={infoText}
       id="outlined-read-only-input"
       value={data}

@@ -115,16 +115,16 @@ const OverviewChart = () => {
         </LineChart>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <InfoCard
-            data={cardData ? cardData.profit : null}
+            data={cardData ? cardData.profit : undefined}
             infoText="Profit"
           />
           <InfoCard
-            data={cardData ? cardData.loss : null}
+            data={cardData ? cardData.loss : undefined}
             textColor="red"
             infoText="Loss"
           />
           <InfoCard
-            data={cardData ? cardData.balance : null}
+            data={cardData ? cardData.balance : undefined}
             textColor="orange"
             infoText="Balance"
           />
