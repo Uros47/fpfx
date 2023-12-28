@@ -8,7 +8,7 @@ interface UsersContextInterface {
   searchData: string;
   setSearchData: (searchData: string) => void;
   tableData: TableData[];
-  setTableData: (tableData: any) => void;
+  setTableData: (tableData: TableData[]) => void;
   setUsers: (users: UsersType[]) => void;
   fetchUserById: (id: string) => void;
   fetchUsersData: () => void;
