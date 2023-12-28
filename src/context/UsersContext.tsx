@@ -25,7 +25,7 @@ interface UsersContextInterface {
   sortColumn: any;
   setSortColumn: (prop: any) => void;
   chartData: any;
-  cardData: any;
+  cardData: CardData | undefined;
   setCardData: any;
 }
 
@@ -51,7 +51,7 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
   const [sortColumn, setSortColumn] = useState<string>();
   const [searchData, setSearchData] = useState<string>("");
   const [chartData, setChartData] = useState<string>("");
-  const [cardData, setCardData] = useState<CardData>();
+  const [cardData, setCardData] = useState<CardData | undefined>();
 
   const fetchUsersData = async () => {
     try {

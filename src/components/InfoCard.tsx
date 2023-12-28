@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 import React from "react";
 
 type InfoCardTypes = {
-  data: CardData | undefined;
+  data: number | undefined;
   infoText: string;
   textColor?: string | "";
 };
