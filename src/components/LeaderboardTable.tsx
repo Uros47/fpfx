@@ -16,6 +16,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import useUsersContext from "@/context/UsersContext";
+import { TableData } from "@/types/Types";
 
 const LeaderboardTable = () => {
   let formatter = new Intl.NumberFormat("en-US", {
@@ -82,7 +83,7 @@ const LeaderboardTable = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {tableData.map((item: any) => (
+                {tableData.map((item: TableData) => (
                   <TableRow key={item.id}>
                     <TableCell>{item.name}</TableCell>
                     <TableCell>{formatter.format(item.profit)}</TableCell>

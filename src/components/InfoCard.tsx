@@ -1,8 +1,9 @@
+import { CardData } from "@/types/Types";
 import { TextField } from "@mui/material";
 import React from "react";
 
 type InfoCardTypes = {
-  data: {} | undefined;
+  data: CardData | undefined;
   infoText: string;
   textColor?: string | "";
 };

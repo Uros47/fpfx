@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { UsersType } from "@/types/UsersType";
+import { CardData, TableData, UsersType } from "@/types/Types";
 
 interface UsersContextInterface {
   //   user: UsersType;
@@ -42,8 +42,8 @@ export default function useUsersContext() {
 }
 
 export const UserContextProvider = ({ children }: UsersContextProps) => {
-  const [users, setUsers] = useState<any[]>([]);
-  const [tableData, setTableData] = useState<any[]>([]);
+  const [users, setUsers] = useState<UsersType[]>([]);
+  const [tableData, setTableData] = useState<TableData[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
   const [totalCount, setTotalCount] = useState<number>(0);
@@ -51,7 +51,7 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
   const [sortColumn, setSortColumn] = useState<string>();
   const [searchData, setSearchData] = useState<string>("");
   const [chartData, setChartData] = useState<string>("");
-  const [cardData, setCardData] = useState<any>();
+  const [cardData, setCardData] = useState<CardData>();
 
   const fetchUsersData = async () => {
     try {

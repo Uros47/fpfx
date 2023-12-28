@@ -20,31 +20,10 @@ import {
   Line,
 } from "recharts";
 import InfoCard from "./InfoCard";
-
-// const data = {
-//   id: "2230978213987124057",
-//   name: "Elise",
-//   lastname: "Hebert",
-//   profit: [80000, 50000, 130000, 70000, 120000, 45000],
-//   loss: [-30000, -20000, -40000, -25000, -10000, -12000],
-// };
-
-// const chartData: any = [];
-
-// // Looping through the profit and loss arrays to create objects for chart
-// for (let i = 0; i < data.profit.length; i++) {
-//   chartData.push({
-//     id: i + 1,
-//     profit: data.profit[i],
-//     loss: data.loss[i],
-//   });
-// }
+import { UsersType } from "@/types/Types";
 
 const OverviewChart = () => {
-  //   const [selectedUser, setSelectedUser] = useState();
-
   const { tableData, fetchUserById, chartData, cardData } = useUsersContext();
-  console.log(cardData, "card data");
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     fetchUserById(event.target.value);
@@ -83,7 +62,7 @@ const OverviewChart = () => {
             defaultValue=""
           >
             {tableData.length > 0 &&
-              tableData.map((user: any) => (
+              tableData.map((user: UsersType) => (
                 <MenuItem key={user.id} value={user.id}>
                   {user.name}
                 </MenuItem>
