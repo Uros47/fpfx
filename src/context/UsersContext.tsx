@@ -26,7 +26,7 @@ interface UsersContextInterface {
   setSortColumn: (prop: any) => void;
   chartData: any;
   cardData: CardData | undefined;
-  setCardData: any;
+  setCardData: (data: CardData) => void;
 }
 
 const UsersContext = createContext<UsersContextInterface>(
