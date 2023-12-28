@@ -22,6 +22,11 @@ import {
 import InfoCard from "./InfoCard";
 import { UsersType } from "@/types/Types";
 
+type SelectTypes = {
+  id: string;
+  name: string;
+};
+
 const OverviewChart = () => {
   const { tableData, fetchUserById, chartData, cardData } = useUsersContext();
 
@@ -62,7 +67,7 @@ const OverviewChart = () => {
             defaultValue=""
           >
             {tableData.length > 0 &&
-              tableData.map((user: UsersType) => (
+              tableData.map((user: SelectTypes) => (
                 <MenuItem key={user.id} value={user.id}>
                   {user.name}
                 </MenuItem>

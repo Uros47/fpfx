@@ -7,7 +7,7 @@ interface UsersContextInterface {
   users: UsersType[] | null;
   searchData: string;
   setSearchData: (searchData: string) => void;
-  tableData: any;
+  tableData: TableData[];
   setTableData: (tableData: any) => void;
   setUsers: (users: UsersType[]) => void;
   fetchUserById: (id: string) => void;
@@ -73,7 +73,7 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
       const data = await users.json();
 
       // transform user data
-      const transformedData = data.map((user: any) => {
+      const transformedData = data.map((user: UsersType) => {
         // converting from negative with Math.abs()
         const accLoss = Math.abs(
           user.loss.reduce((a: number, b: number) => a + b, 0)
