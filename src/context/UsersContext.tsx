@@ -118,10 +118,7 @@ export const UserContextProvider = ({ children }: UsersContextProps) => {
         profit: accProfit,
         balance: balance,
       };
-      console.log(transformedUserObject, "transformedUserObject");
       setCardData(transformedUserObject);
-
-      console.log(data, "id data");
 
       const chartDataArr: any = [];
 
