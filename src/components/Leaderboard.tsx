@@ -1,9 +1,11 @@
 import React from "react";
 import Search from "./Search";
 import LeaderboardTable from "./LeaderboardTable";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 const Leaderboard = () => {
+  const theme = useTheme();
+
   return (
     <>
       <Box sx={{ marginBottom: "10px" }}>

@@ -11,6 +11,7 @@ import {
   TableBody,
   IconButton,
   TablePagination,
+  useTheme,
 } from "@mui/material";
 
 import React, { useEffect, useState } from "react";
@@ -19,6 +20,8 @@ import useUsersContext from "@/context/UsersContext";
 import { TableData } from "@/types/Types";
 
 const LeaderboardTable = () => {
+  const theme = useTheme();
+
   let formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -89,7 +92,9 @@ const LeaderboardTable = () => {
                     <TableCell>{formatter.format(item.profit)}</TableCell>
                     <TableCell>{formatter.format(item.loss)}</TableCell>
                     <TableCell
-                      style={{ color: `${item.balance < 0 && "red"}` }}
+                      style={{
+                        color: `${item.balance < 0 && `${theme.color.red}`}`,
+                      }}
                     >
                       {formatter.format(item.balance)}
                     </TableCell>

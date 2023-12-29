@@ -1,28 +1,26 @@
-import { Roboto } from "next/font/google";
-import { createTheme } from "@mui/material/styles";
-import { red, yellow } from "@mui/material/colors";
+import { createTheme } from "@mui/material";
+import { orange, red } from "@mui/material/colors";
 
-export const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
+declare module "@mui/material/styles" {
+  export interface Theme {
+    color: {
+      red: string;
+      orange: string;
+    };
+  }
+  // allow configuration using `createTheme`
+  export interface ThemeOptions {
+    color?: {
+      red?: string;
+      orange?: string;
+    };
+  }
+}
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#556cd6",
-    },
-    secondary: {
-      main: yellow[100],
-    },
-    error: {
-      main: red.A400,
-    },
-  },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
+  color: {
+    red: red[500],
+    orange: orange[500],
   },
 });
-
 export default theme;

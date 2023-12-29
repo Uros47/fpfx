@@ -21,6 +21,7 @@ import {
 } from "recharts";
 import InfoCard from "./InfoCard";
 import { UsersType } from "@/types/Types";
+import theme from "@/theme";
 
 type SelectTypes = {
   id: string;
@@ -99,10 +100,14 @@ const OverviewChart = () => {
         </LineChart>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <InfoCard data={cardData?.profit} infoText="Profit" />
-          <InfoCard data={cardData?.loss} textColor="red" infoText="Loss" />
+          <InfoCard
+            data={cardData?.loss}
+            textColor={theme.color.red}
+            infoText="Loss"
+          />
           <InfoCard
             data={cardData?.balance}
-            textColor="orange"
+            textColor={theme.color.orange}
             infoText="Balance"
           />
         </Box>
