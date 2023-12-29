@@ -20,7 +20,17 @@ declare module "@mui/material/styles" {
 }
 
 const theme = createTheme({
+  typography: {
+    fontFamily: "Open Sans",
+    h4: {
+      color: "#F2E3D5",
+      fontWeight: 700,
+    },
+  },
   palette: {
+    text: {
+      primary: "#A9A29C",
+    },
     mode: "dark",
     background: {
       default: "#012030",
