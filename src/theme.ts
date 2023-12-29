@@ -33,18 +33,15 @@ const theme = createTheme({
         },
       },
     },
+
     MuiTableCell: {
       styleOverrides: {
+        head: {
+          fontWeight: 700,
+        },
         root: {
           borderBottom: "none",
           fontWeight: 600,
-        },
-      },
-    },
-    MuiTableHead: {
-      styleOverrides: {
-        root: {
-          fontWeight: 700,
         },
       },
     },
