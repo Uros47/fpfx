@@ -23,6 +23,8 @@ import {
 import InfoCard from "./InfoCard";
 import { UsersType } from "@/types/Types";
 import { useTheme } from "@mui/material/styles";
+import Image from "next/image";
+import chart_icon from "@/assets/icons/chart_icon.svg";
 
 type SelectTypes = {
   id: string;
@@ -56,7 +58,7 @@ const OverviewChart = () => {
         }}
       >
         <Typography width="50%" variant="h4">
-          Overview
+          <Image src={chart_icon} alt="chart_icon" height={23} /> Overview
         </Typography>
 
         <FormControl
