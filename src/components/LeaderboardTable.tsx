@@ -67,7 +67,7 @@ const LeaderboardTable = () => {
       {tableData.length > 0 ? (
         <>
           {" "}
-          <TableContainer sx={{ maxHeight: "603px", minWidth: "1000px" }}>
+          <TableContainer sx={{ maxHeight: "603px" }}>
             <Table stickyHeader aria-label="collapsible table">
               <TableHead>
                 <TableRow>
