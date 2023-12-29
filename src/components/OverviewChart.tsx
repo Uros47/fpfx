@@ -57,8 +57,8 @@ const OverviewChart = () => {
           marginBottom: "50px",
         }}
       >
-        <Typography width="50%" variant="h4">
-          <Image src={chart_icon} alt="chart_icon" height={23} /> Overview
+        <Typography width="50%" variant="h5">
+          <Image src={chart_icon} alt="chart_icon" height={18} /> Overview
         </Typography>
 
         <FormControl

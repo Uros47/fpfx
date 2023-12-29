@@ -22,7 +22,7 @@ declare module "@mui/material/styles" {
 const theme = createTheme({
   typography: {
     fontFamily: "Open Sans",
-    h4: {
+    h5: {
       color: "#F2E3D5",
       fontWeight: 700,
     },

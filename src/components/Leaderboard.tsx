@@ -11,8 +11,8 @@ const Leaderboard = () => {
   return (
     <Box component={Paper} sx={{ padding: "20px" }}>
       <Box sx={{ marginBottom: "10px" }}>
-        <Typography variant="h4">
-          <Image src={table_icon} alt="cup_icon" height={23} /> Leaderboard
+        <Typography variant="h5">
+          <Image src={table_icon} alt="cup_icon" height={18} /> Leaderboard
         </Typography>
       </Box>
       <Box display="flex" flexDirection="column">
