@@ -1,6 +1,7 @@
 import { CardData } from "@/types/Types";
 import { TextField } from "@mui/material";
 import React from "react";
+import { useTheme } from "@mui/material/styles";
 
 type InfoCardTypes = {
   data: number | undefined;
@@ -9,9 +10,15 @@ type InfoCardTypes = {
 };
 
 const InfoCard = ({ data, infoText, textColor }: InfoCardTypes) => {
+  const theme = useTheme();
   return (
     <TextField
-      sx={{ input: { color: textColor ? textColor : "" } }}
+      sx={{
+        input: {
+          color: textColor ? textColor : "",
+          backgroundColor: theme.palette.background.default,
+        },
+      }}
       label={infoText}
       id="outlined-read-only-input"
       value={data}

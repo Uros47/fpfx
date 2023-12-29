@@ -71,7 +71,10 @@ const OverviewChart = () => {
             Select User
           </Typography>
           <Select
-            sx={{ width: "35%" }}
+            sx={{
+              width: "35%",
+              backgroundColor: theme.palette.background.default,
+            }}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             onChange={handleChange}
