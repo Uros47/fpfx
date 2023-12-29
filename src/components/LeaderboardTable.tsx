@@ -57,10 +57,7 @@ const LeaderboardTable = () => {
       {tableData.length > 0 ? (
         <>
           {" "}
-          <TableContainer
-            sx={{ maxHeight: "603px", minWidth: "1000px" }}
-            component={Paper}
-          >
+          <TableContainer sx={{ maxHeight: "603px", minWidth: "1000px" }}>
             <Table
               sx={{
                 margin: "0 auto",

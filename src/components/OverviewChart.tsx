@@ -8,6 +8,7 @@ import {
   Typography,
   SelectChangeEvent,
   TextField,
+  Paper,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import {
@@ -21,7 +22,7 @@ import {
 } from "recharts";
 import InfoCard from "./InfoCard";
 import { UsersType } from "@/types/Types";
-import theme from "@/theme";
+import { useTheme } from "@mui/material/styles";
 
 type SelectTypes = {
   id: string;
@@ -29,6 +30,7 @@ type SelectTypes = {
 };
 
 const OverviewChart = () => {
+  const theme = useTheme();
   const { tableData, fetchUserById, chartData, cardData } = useUsersContext();
 
   const handleChange = (event: SelectChangeEvent<string>) => {
@@ -36,7 +38,15 @@ const OverviewChart = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", marginTop: "50px" }}>
+    <Box
+      component={Paper}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        marginTop: "50px",
+        padding: "20px",
+      }}
+    >
       <Box
         sx={{
           display: "flex",

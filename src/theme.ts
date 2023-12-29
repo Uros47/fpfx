@@ -22,6 +22,10 @@ declare module "@mui/material/styles" {
 const theme = createTheme({
   palette: {
     mode: "dark",
+    background: {
+      default: "#012030",
+      paper: "#003A47",
+    },
   },
   color: {
     turquoise: "#0FC2C0",
