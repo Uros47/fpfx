@@ -71,7 +71,7 @@ const LeaderboardTable = () => {
             <Table stickyHeader aria-label="collapsible table">
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ fontWeight: 600 }} sortDirection={sortOrder}>
+                  <TableCell sortDirection={sortOrder}>
                     <TableSortLabel
                       active={true}
                       direction={sortOrder}
@@ -80,9 +80,9 @@ const LeaderboardTable = () => {
                       User
                     </TableSortLabel>
                   </TableCell>
-                  <TableCell sx={{ fontWeight: 600 }}>Profit</TableCell>
-                  <TableCell sx={{ fontWeight: 600 }}>Loss</TableCell>
-                  <TableCell sx={{ fontWeight: 600 }}>Balance</TableCell>
+                  <TableCell>Profit</TableCell>
+                  <TableCell>Loss</TableCell>
+                  <TableCell>Balance</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

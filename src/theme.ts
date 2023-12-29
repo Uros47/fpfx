@@ -37,13 +37,15 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderBottom: "none",
+          fontWeight: 600,
         },
       },
     },
-
-    MuiTableRow: {
+    MuiTableHead: {
       styleOverrides: {
-        root: { borderStyle: "none" },
+        root: {
+          fontWeight: 700,
+        },
       },
     },
   },
