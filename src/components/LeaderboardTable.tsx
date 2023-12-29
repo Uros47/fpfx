@@ -51,21 +51,14 @@ const LeaderboardTable = () => {
 
   return (
     <>
-      <Box alignSelf="end" sx={{ marginBottom: "10px", width: "408px" }}>
+      <Box alignSelf="end" sx={{ marginBottom: "10px" }}>
         <Search searchData={searchData} setSearchData={setSearchData} />
       </Box>
       {tableData.length > 0 ? (
         <>
           {" "}
           <TableContainer sx={{ maxHeight: "603px", minWidth: "1000px" }}>
-            <Table
-              sx={{
-                margin: "0 auto",
-                width: "1200px",
-              }}
-              stickyHeader
-              aria-label="collapsible table"
-            >
+            <Table stickyHeader aria-label="collapsible table">
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ fontWeight: 600 }} sortDirection={sortOrder}>
