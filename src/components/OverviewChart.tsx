@@ -75,7 +75,6 @@ const OverviewChart = () => {
           <Select
             sx={{
               width: "35%",
-              backgroundColor: theme.palette.background.default,
             }}
             labelId="demo-simple-select-label"
             id="demo-simple-select"

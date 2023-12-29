@@ -11,8 +11,9 @@ import {
   TableBody,
   IconButton,
   TablePagination,
-  useTheme,
+  styled,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
@@ -21,6 +22,15 @@ import { TableData } from "@/types/Types";
 
 const LeaderboardTable = () => {
   const theme = useTheme();
+
+  const AlternateTableRow = styled(TableRow)(() => ({
+    "&:nth-of-type(even)": {
+      backgroundColor: theme.color.evenTableRow,
+    },
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.color.oddTableRow,
+    },
+  }));
 
   let formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -77,7 +87,7 @@ const LeaderboardTable = () => {
               </TableHead>
               <TableBody>
                 {tableData.map((item: TableData) => (
-                  <TableRow key={item.id}>
+                  <AlternateTableRow key={item.id}>
                     <TableCell>{item.name}</TableCell>
                     <TableCell>{formatter.format(item.profit)}</TableCell>
                     <TableCell>{formatter.format(item.loss)}</TableCell>
@@ -92,7 +102,7 @@ const LeaderboardTable = () => {
                     >
                       {formatter.format(item.balance)}
                     </TableCell>
-                  </TableRow>
+                  </AlternateTableRow>
                 ))}
               </TableBody>
             </Table>

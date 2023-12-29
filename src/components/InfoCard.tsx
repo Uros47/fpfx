@@ -16,7 +16,6 @@ const InfoCard = ({ data, infoText, textColor }: InfoCardTypes) => {
       sx={{
         input: {
           color: textColor ? textColor : "",
-          backgroundColor: theme.palette.background.default,
         },
       }}
       label={infoText}

@@ -1,4 +1,5 @@
 import {
+  Box,
   IconButton,
   InputBase,
   Paper,
@@ -19,7 +20,7 @@ const Search = ({ searchData, setSearchData }: SearchTypes) => {
   };
 
   return (
-    <Paper
+    <Box
       component="form"
       sx={{
         p: "2px 4px",
@@ -27,6 +28,7 @@ const Search = ({ searchData, setSearchData }: SearchTypes) => {
         alignItems: "center",
         width: 400,
         backgroundColor: theme.palette.background.default,
+        borderRadius: "5px",
       }}
     >
       <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
@@ -43,7 +45,7 @@ const Search = ({ searchData, setSearchData }: SearchTypes) => {
         inputProps={{ "aria-label": "search by user" }}
         onChange={handleChange}
       />
-    </Paper>
+    </Box>
   );
 };
 

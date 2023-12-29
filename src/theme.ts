@@ -7,6 +7,8 @@ declare module "@mui/material/styles" {
       turquoise: string;
       red: string;
       orange: string;
+      evenTableRow: string;
+      oddTableRow: string;
     };
   }
   // allow configuration using `createTheme`
@@ -15,11 +17,29 @@ declare module "@mui/material/styles" {
       turquoise?: string;
       red?: string;
       orange?: string;
+      evenTableRow?: string;
+      oddTableRow?: string;
     };
   }
 }
 
 const theme = createTheme({
+  components: {
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#012030",
+          borderRadius: "5px",
+        },
+      },
+    },
+
+    MuiTableRow: {
+      styleOverrides: {
+        root: { borderStyle: "none" },
+      },
+    },
+  },
   typography: {
     fontFamily: "Open Sans",
     h5: {
@@ -38,6 +58,8 @@ const theme = createTheme({
     },
   },
   color: {
+    evenTableRow: "#012F39",
+    oddTableRow: "#013440",
     turquoise: "#0FC2C0",
     red: "#FF3737",
     orange: "#F6742A",
