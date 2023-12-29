@@ -33,6 +33,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderBottom: "none",
+        },
+      },
+    },
 
     MuiTableRow: {
       styleOverrides: {
