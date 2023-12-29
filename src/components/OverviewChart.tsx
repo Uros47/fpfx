@@ -112,7 +112,11 @@ const OverviewChart = () => {
           <Line type="monotone" dataKey="loss" stroke="#82ca9d" />
         </LineChart>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          <InfoCard data={cardData?.profit} infoText="Profit" />
+          <InfoCard
+            data={cardData?.profit}
+            infoText="Profit"
+            textColor={theme.color.turquoise}
+          />
           <InfoCard
             data={cardData?.loss}
             textColor={theme.color.red}
