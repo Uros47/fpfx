@@ -93,7 +93,11 @@ const LeaderboardTable = () => {
                     <TableCell>{formatter.format(item.loss)}</TableCell>
                     <TableCell
                       style={{
-                        color: `${item.balance < 0 && `${theme.color.red}`}`,
+                        color: `${
+                          item.balance < 0
+                            ? `${theme.color.red}`
+                            : `${theme.color.turquoise}`
+                        }`,
                       }}
                     >
                       {formatter.format(item.balance)}

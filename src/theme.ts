@@ -4,6 +4,7 @@ import { orange, red } from "@mui/material/colors";
 declare module "@mui/material/styles" {
   export interface Theme {
     color: {
+      turquoise: string;
       red: string;
       orange: string;
     };
@@ -11,6 +12,7 @@ declare module "@mui/material/styles" {
   // allow configuration using `createTheme`
   export interface ThemeOptions {
     color?: {
+      turquoise?: string;
       red?: string;
       orange?: string;
     };
@@ -18,9 +20,13 @@ declare module "@mui/material/styles" {
 }
 
 const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
   color: {
-    red: red[500],
-    orange: orange[500],
+    turquoise: "#0FC2C0",
+    red: "#FF3737",
+    orange: "#F6742A",
   },
 });
 export default theme;
